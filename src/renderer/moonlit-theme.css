@@ -1,0 +1,126 @@
+/* Approved Moonlit Forest skin. The scene and content share a width, while
+   a fixed landscape height keeps the moon clear when attachments expand. */
+:root {
+  --home-landscape: url('./assets/ideatogame/home/mushroom-moon-night-v2.png');
+  --home-landscape-height: max(800px, calc(100dvh - 62px));
+}
+:root[data-theme='light'] {
+  --home-landscape: url('./assets/ideatogame/home/mushroom-moon-dawn-v2.png');
+}
+.home-hero {
+  min-height: var(--home-landscape-height);
+  background: var(--studio-bg);
+  isolation: isolate;
+}
+.home-moon-landscape {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--home-landscape-height);
+  background-image: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--studio-bg) 10%, transparent) 75%, var(--studio-bg) 100%), var(--home-landscape);
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+.home-hero-content {
+  padding: calc(var(--home-landscape-height) * .37) clamp(20px, 3vw, 44px) 44px;
+}
+.home-hero h1 {
+  margin-top: 22px;
+  font-size: clamp(26px, 2.7vw, 40px);
+  text-shadow: 0 2px 3px color-mix(in srgb, var(--studio-bg) 70%, transparent);
+}
+.home-hero-content > p:not(.home-input-hint) {
+  max-width: 760px;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--studio-surface) 92%, transparent);
+  color: var(--studio-text);
+  padding: 5px 12px;
+  font-size: 13px;
+}
+.home-prompt-card {
+  background: var(--glass-surface-strong);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.home-loop-status {
+  border: 1px solid var(--studio-border);
+  background: var(--glass-surface-strong);
+  color: var(--studio-text);
+  font-size: 12px;
+}
+.home-projects {
+  border-top: 1px solid var(--studio-border);
+  background: var(--studio-bg);
+  padding-top: 28px;
+}
+.launch-transition { background: var(--studio-bg); color: var(--studio-text); }
+.launch-transition-copy span { color: var(--studio-muted); }
+.launch-transition-track { border-color: var(--studio-border); }
+
+/* Preserve the map's image coordinate system: cover-cropping in a tall flex
+   pane used to move furniture away from the authored feet and occluders. */
+.production-diorama {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1586 / 992;
+  container-type: inline-size;
+  border: 4px solid var(--studio-border);
+  background: var(--studio-bg);
+  box-shadow: none;
+}
+.production-diorama[data-runtime-scene='fishing'] {
+  aspect-ratio: 3 / 2;
+  background: #102b38;
+}
+.production-diorama .workshop-map { background: var(--studio-bg); }
+.production-diorama .workshop-map img,
+.production-diorama .workshop-occluder { object-fit: fill; }
+.production-diorama .production-assistant,
+.production-diorama .noobi-pixel-sprite {
+  width: clamp(30px, 5cqw, 60px);
+  height: clamp(40px, 6.6667cqw, 80px);
+}
+.production-diorama .noobi-pixel-sprite.is-mini,
+.production-diorama .assistant-mini-noobi { width: 20px; height: 27px; }
+.production-diorama .diorama-narration {
+  max-height: none;
+  max-width: 250px;
+  border: 1px solid var(--studio-border);
+  border-radius: 8px;
+  background: var(--glass-surface-strong);
+  box-shadow: 0 4px 18px var(--studio-shadow);
+}
+.production-diorama .diorama-narration::before,
+.production-diorama .diorama-narration::after { content: none; }
+.production-diorama .diorama-narration strong { color: var(--studio-text); }
+.production-diorama .diorama-narration p,
+.production-diorama .diorama-narration > span { color: var(--studio-muted); }
+.production-diorama .diorama-action {
+  border: 1px solid var(--studio-border);
+  border-radius: 7px;
+  background: var(--glass-surface-strong);
+  box-shadow: none;
+}
+.production-diorama .diorama-action b { color: var(--studio-text); }
+.production-diorama .diorama-action em { color: var(--studio-accent); }
+.noobi-pack-card.pack-hellokitty .noobi-character-preview { background-color: #c6d8cd; }
+.noobi-pack-card.pack-classic .noobi-character-preview { background-color: #acc3df; }
+
+@media (max-width: 980px) {
+  .home-hero-content { padding-top: calc(var(--home-landscape-height) * .37); }
+}
+@media (max-width: 620px) {
+  .home-hero h1 { font-size: 27px; }
+  .home-hero-content { padding-right: 16px; padding-left: 16px; }
+  .production-diorama .diorama-narration { top: 6px; right: 6px; width: 44%; padding: 5px 7px; }
+  .production-diorama .diorama-narration > span { display: none; }
+  .production-diorama .diorama-narration strong { font-size: 10px; }
+  .production-diorama .diorama-action { bottom: 6px; left: 6px; min-height: 22px; padding: 4px 6px; }
+}

@@ -1,0 +1,54 @@
+node_modules/
+dist/
+release/
+coverage/
+*.log
+.DS_Store
+.noobi-smoke/
+
+# Local credentials and machine-specific state
+.env*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+.noobi-private/
+*.tsbuildinfo
+*.tmp
+
+# Local research, design handoff, source archives and publishing audit
+.local-only/
+项目拆解文档/
+UI交接/
+ui交接/
+.design/
+docs/
+ROADMAP.md
+CONTRIBUTING.md
+SECURITY.md
+schemas/
+src/generated/
+.github/ISSUE_TEMPLATE/
+.github/pull_request_template.md
+scripts/moonlit-ui-regression.cjs
+scripts/build-noobi-transition-gifs.mjs
+scripts/extract-fishing-sprites.mjs
+scripts/render-fishing-gif.mjs
+
+# Personal application state and generated games
+codex-home/
+user-data/
+artifacts/
+*.db
+*.sqlite*
+*.ips
+*.dmg
+*.app/
+*.zip
+
+# Superseded upstream art is kept only in .local-only/
+src/renderer/assets/noobi*/
+src/renderer/assets/noobi*.png

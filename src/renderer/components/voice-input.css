@@ -1,0 +1,17 @@
+.voice-input-control { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.voice-input-button { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--studio-text, var(--text)); cursor: pointer; flex: 0 0 auto; }
+.voice-input-button:hover { background: color-mix(in srgb, var(--studio-text, var(--text)) 9%, transparent); }
+.voice-input-button:focus-visible { outline: 2px solid var(--studio-accent, var(--accent)); outline-offset: 3px; }
+.voice-input-button:disabled { cursor: default; opacity: .55; }
+.voice-input-button.is-listening { background: #e5e9e8; color: #182320; box-shadow: 0 0 0 1px #1823201c; }
+.voice-input-strip { display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 40px; padding: 6px 12px; border-radius: 22px; color: var(--studio-text, var(--text)); background: color-mix(in srgb, var(--studio-text, var(--text)) 6%, transparent); }
+.voice-input-label, .voice-input-strip time { font: 12px/1.4 system-ui, sans-serif; white-space: nowrap; }
+.voice-input-strip time { opacity: .65; font-variant-numeric: tabular-nums; }
+.voice-input-wave { display: flex; align-items: center; justify-content: center; gap: 3px; height: 26px; }
+.voice-input-wave i { display: block; width: 3px; border-radius: 3px; background: currentColor; transition: height 100ms linear; }
+.voice-input-spinner { animation: voice-input-spin 1s linear infinite; }
+.voice-input-error { display: flex; align-items: center; gap: 8px; padding: 8px 16px; font: 13px/1.5 system-ui, sans-serif; color: var(--studio-text, var(--text)); }
+.voice-input-error button { margin-left: auto; background: transparent; border: 0; color: inherit; cursor: pointer; }
+@keyframes voice-input-spin { to { transform: rotate(360deg); } }
+@media (max-width: 800px) { .home-prompt-controls:has(.voice-input-strip) { flex-wrap: wrap; } .voice-input-label { display: none; } .voice-input-strip { gap: 8px; } .voice-input-wave { gap: 2px; } .voice-input-wave i { width: 2px; } }
+@media (prefers-reduced-motion: reduce) { .voice-input-wave i { transition: none; } .voice-input-spinner { animation: none; } }
